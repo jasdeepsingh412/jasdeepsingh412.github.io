@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jasdeep Singh | Android Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Jasdeep Singh - Android Developer. Creator of Notely, PulseCheck, Basic Calculator, BMI Calculator and Tic Tac Toe."
+  />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #020817;
+      --card: #020b19;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.08);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --max-width: 1040px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #020617 0, #000 52%, #000 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    /* Navbar */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.94),
+        rgba(2, 6, 23, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 16px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 0 0, #bbf7d0, #22c55e, #16a34a);
+      box-shadow:
+        0 0 0 2px rgba(34, 197, 94, 0.35),
+        0 0 25px rgba(34, 197, 94, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #022c22;
+    }
+
+    .nav-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-tagline {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+      color: #9ca3af;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #22c55e, #4ade80);
+      transition: width 0.22s ease;
+    }
+
+    .nav-link:hover {
+      color: #e5e7eb;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      padding: 26px 0 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 20px;
+      }
+    }
+
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-pill {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px 5px 5px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top left, #020617, #020617);
+      box-shadow: var(--shadow-subtle);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-pill-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 0, #bbf7d0, transparent 55%),
+        radial-gradient(circle at 70% 100%, #22c55e, #16a34a);
+      box-shadow:
+        0 0 0 4px rgba(34, 197, 94, 0.32),
+        0 0 18px rgba(34, 197, 94, 0.7);
+    }
+
+    .hero-title {
+      font-size: clamp(2.15rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #f9fafb, #e5e7eb, #a7f3d0);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: transparent;
+      color: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #020617;
+      border-color: rgba(34, 197, 94, 0.7);
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-0.5px);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at top left, #020617, #020617);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(148, 163, 184, 0.9);
+      color: #e5e7eb;
+    }
+
+    .btn-icon {
+      font-size: 1rem;
+    }
+
+    .hero-meta {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* Hero right card */
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 16px 14px 14px;
+      border: 1px solid rgba(15, 23, 42, 0.96);
+      background:
+        radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.15), transparent 53%),
+        linear-gradient(145deg, #020617, #020617);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-title {
+      font-size: 0.84rem;
+      color: #9ca3af;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-status {
+      font-size: 0.76rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      background: rgba(34, 197, 94, 0.08);
+      color: #bbf7d0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    }
+
+    .hero-card-body {
+      border-radius: 16px;
+      padding: 12px;
+      background: radial-gradient(circle at 0 0, #020617, #020617);
+      border: 1px solid rgba(31, 41, 55, 0.96);
+    }
+
+    .hero-row-label {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-bottom: 2px;
+    }
+
+    .hero-row-value {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+    }
+
+    .hero-skills-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.96);
+      color: #9ca3af;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 0.76rem;
+      color: #6b7280;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .hero-badge {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px dashed rgba(75, 85, 99, 0.96);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .hero-spark {
+      position: absolute;
+      inset: -40%;
+      opacity: 0.35;
+      background:
+        radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.23), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(45, 212, 191, 0.18), transparent 55%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 34px;
+    }
+
+    .section-header {
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .section-highlight {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .section-highlight strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    /* Card base */
+    .card {
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 14px;
+      background: radial-gradient(circle at top left, #020617, #020617);
+      border: 1px solid rgba(31, 41, 55, 0.96);
+      box-shadow: var(--shadow-subtle);
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card p + p {
+      margin-top: 8px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 880px) {
+      .skills-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .skills-group-title {
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .skills-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .skill-chip {
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(55, 65, 81, 0.98);
+      background: rgba(15, 23, 42, 0.98);
+      color: #e5e7eb;
+    }
+
+    .skill-chip.primary {
+      border-color: rgba(34, 197, 94, 0.7);
+      background: rgba(34, 197, 94, 0.12);
+      color: #bbf7d0;
+    }
+
+    .skill-note {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 880px) {
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      padding: 12px 12px 10px;
+      background: radial-gradient(circle at top left, #020617, #020617);
+      border: 1px solid rgba(31, 41, 55, 0.96);
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.86rem;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      color: #bbf7d0;
+    }
+
+    .project-description {
+      color: #9ca3af;
+      line-height: 1.4;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-tech span {
+      font-size: 0.75rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.96);
+      color: #9ca3af;
+    }
+
+    .project-links {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #a5b4fc;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact */
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 880px) {
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-main {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    .contact-main strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .contact-highlight {
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px dashed rgba(55, 65, 81, 0.98);
+      background: rgba(15, 23, 42, 0.98);
+      font-size: 0.82rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.86rem;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .contact-label {
+      color: #9ca3af;
+    }
+
+    .contact-value {
+      text-align: right;
+      color: #e5e7eb;
+      word-break: break-all;
+    }
+
+    .contact-links {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.82rem;
+    }
+
+    .contact-link {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.98);
+      background: rgba(15, 23, 42, 0.98);
+      color: #e5e7eb;
+    }
+
+    .contact-link:hover {
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 30px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(31, 41, 55, 0.96);
+      font-size: 0.78rem;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <div class="avatar">JS</div>
+        <div class="nav-text">
+          <div class="nav-name">Jasdeep Singh</div>
+          <div class="nav-tagline">Android Developer</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-pill">
+          <div class="hero-pill-dot"></div>
+          Android dev who ships apps, not just ideas.
+        </div>
+        <h1 class="hero-title">
+          Hi, I’m <span>Jasdeep</span> – I build clean, focused Android apps.
+        </h1>
+        <p class="hero-subtitle">
+          Android developer focused on building clean, simple and reliable apps with
+          <strong>Java, Firebase and modern Android practices</strong>. I like turning small ideas into
+          polished tools – from note apps to calculators and mini games – while constantly improving UI,
+          performance and code quality. Right now I’m diving deeper into Kotlin and real-world production workflows.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            <span class="btn-icon">📱</span>
+            View my Android projects
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            <span class="btn-icon">✉️</span>
+            Let’s connect
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span><span class="meta-dot"></span> Open to Android roles & internships</span>
+          <span>Based in India · Remote-friendly</span>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Quick profile">
+        <div class="hero-spark"></div>
+        <div class="hero-card-top">
+          <div class="hero-card-title">Snapshot</div>
+          <div class="hero-status">
+            <span class="hero-status-dot"></span>
+            Actively building
+          </div>
+        </div>
+        <div class="hero-card-body">
+          <div>
+            <div class="hero-row-label">Role</div>
+            <div class="hero-row-value">Android Developer (Java · Firebase · learning Kotlin)</div>
+          </div>
+          <div>
+            <div class="hero-row-label">Most recent apps</div>
+            <div class="hero-row-value">Notely · PulseCheck · Basic Calculator · BMI Calculator · Tic Tac Toe</div>
+          </div>
+          <div>
+            <div class="hero-row-label">Tech I’m comfortable with</div>
+            <div class="hero-skills-inline">
+              <span class="chip">Java</span>
+              <span class="chip">Android Studio</span>
+              <span class="chip">XML layouts</span>
+              <span class="chip">Firebase Auth</span>
+              <span class="chip">Cloud Firestore</span>
+              <span class="chip">Realtime Database</span>
+            </div>
+          </div>
+          <div class="hero-card-footer">
+            <div class="hero-badges">
+              <div class="hero-badge">Clean UI focus</div>
+              <div class="hero-badge">Learning Kotlin</div>
+            </div>
+            <span>Always shipping something new</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <p class="section-highlight">
+          <strong>Practical Android dev</strong> who learns fastest by building and shipping.
+        </p>
+      </div>
+      <article class="card">
+        <p>
+          I’m Jasdeep Singh, an Android developer who enjoys turning ideas into small, focused apps that actually
+          get used. Instead of just following tutorials, I like taking things one step further – refining the UI,
+          handling edge cases and making sure the app feels smooth to use.
+        </p>
+        <p>
+          Most of my recent work has been in <strong>Java, Android Studio and Firebase</strong>, including auth,
+          cloud sync and realtime data. I’m gradually moving into Kotlin and more structured architectures so I can
+          work comfortably on production-level apps and in real-world teams.
+        </p>
+        <p>
+          I’m open to internships, junior roles or collaborations where I can contribute Android features while
+          learning from more experienced engineers.
+        </p>
+      </article>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-highlight">
+          From <strong>UI screens</strong> to <strong>Firebase-backed features</strong>.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="card">
+          <div class="skills-group-title">Android & languages</div>
+          <div class="skills-chips">
+            <span class="skill-chip primary">Java (Android)</span>
+            <span class="skill-chip">Android Studio</span>
+            <span class="skill-chip">XML UI layouts</span>
+            <span class="skill-chip">Activities & Fragments</span>
+            <span class="skill-chip">RecyclerView basics</span>
+            <span class="skill-chip">Navigation & Intents</span>
+            <span class="skill-chip">Kotlin (learning)</span>
+          </div>
+          <div class="skill-note">
+            Comfortable building small apps end-to-end: screens, logic, basic state management and simple animations.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="skills-group-title">Backend & tools</div>
+          <div class="skills-chips">
+            <span class="skill-chip primary">Firebase Authentication</span>
+            <span class="skill-chip primary">Cloud Firestore</span>
+            <span class="skill-chip">Realtime Database</span>
+            <span class="skill-chip">Firebase Storage (basics)</span>
+            <span class="skill-chip">Git & GitHub</span>
+            <span class="skill-chip">Debugging & Logcat</span>
+          </div>
+          <div class="skill-note">
+            Focused on practical flows: login/sign-up, syncing user data, and keeping code readable and maintainable.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-highlight">
+          A few <strong>Android projects</strong> I’ve built and keep improving.
+        </p>
+      </div>
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Notely</h3>
+            <span class="project-tag">Firebase · Notes</span>
+          </div>
+          <p class="project-description">
+            Cloud-based note taking app where users can create, edit and delete notes that stay in sync across
+            devices using Firebase. Designed with a clean, minimal UI for fast note entry.
+          </p>
+          <div class="project-tech">
+            <span>Java</span>
+            <span>Android Studio</span>
+            <span>Firebase Auth</span>
+            <span>Cloud Firestore</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/invinciblejaz" class="project-link" target="_blank" rel="noreferrer">
+              <span>View on GitHub</span> <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">PulseCheck</h3>
+            <span class="project-tag">Wellness · Anonymous</span>
+          </div>
+          <p class="project-description">
+            An anonymous check-in app concept where users can log how they feel and track their moods over time,
+            without attaching their identity. Focus on a comforting UI and simple flows.
+          </p>
+          <div class="project-tech">
+            <span>Java</span>
+            <span>Android</span>
+            <span>Firebase (planned)</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/invinciblejaz" class="project-link" target="_blank" rel="noreferrer">
+              <span>View on GitHub</span> <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Basic Calculator</h3>
+            <span class="project-tag">Utility</span>
+          </div>
+          <p class="project-description">
+            A modern, lightweight calculator app with all standard operations and a clean layout that stays usable
+            on different screen sizes.
+          </p>
+          <div class="project-tech">
+            <span>Java</span>
+            <span>Android Studio</span>
+            <span>Custom UI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/invinciblejaz" class="project-link" target="_blank" rel="noreferrer">
+              <span>View on GitHub</span> <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">BMI Calculator</h3>
+            <span class="project-tag">Health</span>
+          </div>
+          <p class="project-description">
+            BMI calculator that supports both metric and imperial units, with a modern UI and clear result states.
+          </p>
+          <div class="project-tech">
+            <span>Java</span>
+            <span>Android Studio</span>
+            <span>Responsive UI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/invinciblejaz" class="project-link" target="_blank" rel="noreferrer">
+              <span>View on GitHub</span> <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Tic Tac Toe</h3>
+            <span class="project-tag">Game</span>
+          </div>
+          <p class="project-description">
+            Classic Tic Tac Toe game built to practice layouts, game logic and clean separation of UI and state.
+          </p>
+          <div class="project-tech">
+            <span>Java</span>
+            <span>Android</span>
+            <span>Game Logic</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/invinciblejaz" class="project-link" target="_blank" rel="noreferrer">
+              <span>View on GitHub</span> <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-highlight">
+          Let’s talk about <strong>Android apps, internships or collaborations</strong>.
+        </p>
+      </div>
+      <div class="card contact-card">
+        <div class="contact-main">
+          <p>
+            Whether it’s an internship, junior Android role or a side project, I’m happy to discuss how I can help
+            build or improve your Android app.
+          </p>
+          <div class="contact-highlight">
+            Best way to reach me is by email or LinkedIn. Share a brief about your idea / role and I’ll get back
+            as soon as I can.
+          </div>
+        </div>
+        <div class="contact-details">
+          <div class="contact-row">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">jasdeepsinghjazzy@gmail.com</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">
+              <a href="https://github.com/invinciblejaz" target="_blank" rel="noreferrer">
+                github.com/invinciblejaz
+              </a>
+            </span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">
+              <a href="https://www.linkedin.com/in/jasdeep-singh-8377b0205/" target="_blank" rel="noreferrer">
+                jasdeep-singh-8377b0205
+              </a>
+            </span>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:jasdeepsinghjazzy@gmail.com">Send email</a>
+            <a class="contact-link" href="https://github.com/invinciblejaz" target="_blank" rel="noreferrer">GitHub profile</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/jasdeep-singh-8377b0205/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> Jasdeep Singh</span>
+      <span>Built with Java, Android, and a lot of trial & error.</span>
+    </footer>
+  </main>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

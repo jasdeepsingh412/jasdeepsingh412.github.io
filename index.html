@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Jasdeep Singh | Android Developer</title>
+  <title>Jasdeep Singh | Mobile Developer (Flutter/Android)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Portfolio of Jasdeep Singh - Android Developer. Creator of Notely, PulseCheck, Basic Calculator, BMI Calculator and Tic Tac Toe."
+    content="Portfolio of Jasdeep Singh - Mobile Application Developer specializing in Flutter and Android. Currently building at Nomo Toyz."
   />
   <style>
     :root {
@@ -467,6 +467,70 @@
       margin-top: 8px;
     }
 
+    /* Experience */
+    .experience-card {
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      background: radial-gradient(circle at top left, #020617, #020617);
+      border: 1px solid rgba(31, 41, 55, 0.96);
+      box-shadow: var(--shadow-subtle);
+      margin-bottom: 14px;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .experience-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .experience-company {
+      font-size: 0.88rem;
+      color: #22c55e;
+    }
+
+    .experience-meta {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .experience-content {
+      margin-top: 10px;
+    }
+
+    .experience-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .experience-content li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+      font-size: 0.88rem;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    .experience-content li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #22c55e;
+    }
+
     /* Skills */
     .skills-grid {
       display: grid;
@@ -697,11 +761,12 @@
         <div class="avatar">JS</div>
         <div class="nav-text">
           <div class="nav-name">Jasdeep Singh</div>
-          <div class="nav-tagline">Android Developer</div>
+          <div class="nav-tagline">Mobile Developer</div>
         </div>
       </div>
       <nav class="nav-links">
         <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
@@ -715,30 +780,29 @@
       <div class="hero-main">
         <div class="hero-pill">
           <div class="hero-pill-dot"></div>
-          Android dev who ships apps, not just ideas.
+          Currently building production apps at Nomo Toyz
         </div>
         <h1 class="hero-title">
-          Hi, I’m <span>Jasdeep</span> – I build clean, focused Android apps.
+          Hi, I'm <span>Jasdeep</span> – I build mobile apps that users love.
         </h1>
         <p class="hero-subtitle">
-          Android developer focused on building clean, simple and reliable apps with
-          <strong>Java, Firebase and modern Android practices</strong>. I like turning small ideas into
-          polished tools – from note apps to calculators and mini games – while constantly improving UI,
-          performance and code quality. Right now I’m diving deeper into Kotlin and real-world production workflows.
+          Mobile developer specializing in <strong>Flutter and Android</strong> with hands-on experience 
+          building full-stack mobile applications. Currently working at Nomo Toyz, where I own the entire 
+          UI layer and integrate complex authentication flows with backend APIs.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">
             <span class="btn-icon">📱</span>
-            View my Android projects
+            View my work
           </a>
           <a href="#contact" class="btn btn-ghost">
             <span class="btn-icon">✉️</span>
-            Let’s connect
+            Let's connect
           </a>
         </div>
         <div class="hero-meta">
-          <span><span class="meta-dot"></span> Open to Android roles & internships</span>
-          <span>Based in India · Remote-friendly</span>
+          <span><span class="meta-dot"></span> Open to mobile development opportunities</span>
+          <span>Hoshiarpur, Punjab · Remote-friendly</span>
         </div>
       </div>
 
@@ -748,35 +812,35 @@
           <div class="hero-card-title">Snapshot</div>
           <div class="hero-status">
             <span class="hero-status-dot"></span>
-            Actively building
+            Building in production
           </div>
         </div>
         <div class="hero-card-body">
           <div>
-            <div class="hero-row-label">Role</div>
-            <div class="hero-row-value">Android Developer (Java · Firebase · learning Kotlin)</div>
+            <div class="hero-row-label">Current Role</div>
+            <div class="hero-row-value">Mobile Development Intern @ Nomo Toyz</div>
           </div>
           <div>
-            <div class="hero-row-label">Most recent apps</div>
-            <div class="hero-row-value">Notely · PulseCheck · Basic Calculator · BMI Calculator · Tic Tac Toe</div>
+            <div class="hero-row-label">Primary Stack</div>
+            <div class="hero-row-value">Flutter · Dart · Android SDK · Firebase</div>
           </div>
           <div>
-            <div class="hero-row-label">Tech I’m comfortable with</div>
+            <div class="hero-row-label">Core Competencies</div>
             <div class="hero-skills-inline">
-              <span class="chip">Java</span>
-              <span class="chip">Android Studio</span>
-              <span class="chip">XML layouts</span>
+              <span class="chip">Flutter UI</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">OAuth 2.0</span>
               <span class="chip">Firebase Auth</span>
-              <span class="chip">Cloud Firestore</span>
-              <span class="chip">Realtime Database</span>
+              <span class="chip">MVVM</span>
+              <span class="chip">Android SDK</span>
             </div>
           </div>
           <div class="hero-card-footer">
             <div class="hero-badges">
-              <div class="hero-badge">Clean UI focus</div>
-              <div class="hero-badge">Learning Kotlin</div>
+              <div class="hero-badge">End-to-end ownership</div>
+              <div class="hero-badge">Production debugging</div>
             </div>
-            <span>Always shipping something new</span>
+            <span>Shipping real features</span>
           </div>
         </div>
       </aside>
@@ -787,24 +851,83 @@
       <div class="section-header">
         <h2 class="section-title">About</h2>
         <p class="section-highlight">
-          <strong>Practical Android dev</strong> who learns fastest by building and shipping.
+          <strong>Mobile developer</strong> who thrives on building complete user experiences.
         </p>
       </div>
       <article class="card">
         <p>
-          I’m Jasdeep Singh, an Android developer who enjoys turning ideas into small, focused apps that actually
-          get used. Instead of just following tutorials, I like taking things one step further – refining the UI,
-          handling edge cases and making sure the app feels smooth to use.
+          I'm Jasdeep Singh, a mobile developer passionate about creating polished, functional apps. 
+          Currently at Nomo Toyz, I own the entire UI layer of our mobile app – designing and building 
+          every screen from authentication flows to complex product features, all while working closely 
+          with backend engineers to ensure seamless integration.
         </p>
         <p>
-          Most of my recent work has been in <strong>Java, Android Studio and Firebase</strong>, including auth,
-          cloud sync and realtime data. I’m gradually moving into Kotlin and more structured architectures so I can
-          work comfortably on production-level apps and in real-world teams.
+          My experience spans <strong>Flutter, Android development, and Firebase</strong>, with a focus 
+          on building reusable component systems and maintaining clean, scalable code. I've tackled 
+          production-blocking issues across frontend and backend boundaries, learning to debug effectively 
+          under pressure and communicate technical challenges clearly.
         </p>
         <p>
-          I’m open to internships, junior roles or collaborations where I can contribute Android features while
-          learning from more experienced engineers.
+          Before transitioning to software development, I worked as a Second Mate in maritime operations, 
+          where I operated mission-critical systems in zero-error environments and led multicultural teams 
+          during high-pressure situations. This background taught me precision, attention to detail, and 
+          the importance of reliable systems – values I bring to every line of code I write.
         </p>
+      </article>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-highlight">
+          Building <strong>real products</strong> and solving <strong>production challenges</strong>.
+        </p>
+      </div>
+      
+      <article class="experience-card">
+        <div class="experience-header">
+          <div>
+            <h3 class="experience-title">Mobile Development Intern</h3>
+            <div class="experience-company">Nomo Toyz</div>
+          </div>
+          <div class="experience-meta">
+            <span>Remote</span>
+            <span>Dec 2025 – Present</span>
+          </div>
+        </div>
+        <div class="experience-content">
+          <ul>
+            <li>Designed and built every screen of the mobile application using Flutter, including login, signup, onboarding, home, product flows, wishlist, and parental control features</li>
+            <li>Own the entire UI layer end-to-end, from layout and component structure to final in-app implementation, ensuring visual consistency and scalability</li>
+            <li>Built reusable Flutter components and design systems that maintain consistency across the app while enabling rapid feature development</li>
+            <li>Implemented authentication flows (email/password and Google Sign-In) and connected UI screens to backend APIs with cookie-based sessions</li>
+            <li>Integrated OAuth 2.0 Google Sign-In, collaborating closely with backend engineers to debug and resolve token, audience, and session-handling issues</li>
+            <li>Connected UI flows with REST APIs for user profiles, wishlist, and protected routes, implementing cookie-based session management</li>
+            <li>Took ownership of debugging production-blocking issues across frontend and backend boundaries under tight timelines</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="experience-card">
+        <div class="experience-header">
+          <div>
+            <h3 class="experience-title">Second Mate (Deck Officer)</h3>
+            <div class="experience-company">Executive Ship Management</div>
+          </div>
+          <div class="experience-meta">
+            <span>Singapore</span>
+            <span>Mar 2021 – Jan 2024</span>
+          </div>
+        </div>
+        <div class="experience-content">
+          <ul>
+            <li>Operated mission-critical navigation and safety systems in zero-error environments – experience now applied to debugging, QA, and production-level development</li>
+            <li>Led multicultural crews during high-pressure operations, directly translating to teamwork and ownership in software projects</li>
+            <li>Managed technical documentation and compliance records with precision, strengthening attention to detail in code structure and system design</li>
+            <li>Rapidly adapted to new onboard technologies, now mirrored in fast learning of mobile frameworks and tooling</li>
+          </ul>
+        </div>
       </article>
     </section>
 
@@ -813,38 +936,42 @@
       <div class="section-header">
         <h2 class="section-title">Skills</h2>
         <p class="section-highlight">
-          From <strong>UI screens</strong> to <strong>Firebase-backed features</strong>.
+          From <strong>Flutter UI</strong> to <strong>backend integration</strong>.
         </p>
       </div>
       <div class="skills-grid">
         <div class="card">
-          <div class="skills-group-title">Android & languages</div>
+          <div class="skills-group-title">Mobile Development</div>
           <div class="skills-chips">
-            <span class="skill-chip primary">Java (Android)</span>
-            <span class="skill-chip">Android Studio</span>
-            <span class="skill-chip">XML UI layouts</span>
-            <span class="skill-chip">Activities & Fragments</span>
-            <span class="skill-chip">RecyclerView basics</span>
-            <span class="skill-chip">Navigation & Intents</span>
-            <span class="skill-chip">Kotlin (learning)</span>
+            <span class="skill-chip primary">Flutter</span>
+            <span class="skill-chip primary">Dart</span>
+            <span class="skill-chip">Android SDK</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">Jetpack</span>
+            <span class="skill-chip">MVVM</span>
+            <span class="skill-chip">XML UI</span>
           </div>
           <div class="skill-note">
-            Comfortable building small apps end-to-end: screens, logic, basic state management and simple animations.
+            Expert in Flutter UI development with experience building complete mobile applications from scratch. 
+            Strong Android foundations with Java and modern architecture patterns.
           </div>
         </div>
 
         <div class="card">
-          <div class="skills-group-title">Backend & tools</div>
+          <div class="skills-group-title">Backend & Tools</div>
           <div class="skills-chips">
-            <span class="skill-chip primary">Firebase Authentication</span>
-            <span class="skill-chip primary">Cloud Firestore</span>
-            <span class="skill-chip">Realtime Database</span>
-            <span class="skill-chip">Firebase Storage (basics)</span>
+            <span class="skill-chip primary">REST APIs</span>
+            <span class="skill-chip primary">Firebase</span>
+            <span class="skill-chip">OAuth 2.0</span>
+            <span class="skill-chip">Cookie Auth</span>
+            <span class="skill-chip">Firestore</span>
+            <span class="skill-chip">Room</span>
             <span class="skill-chip">Git & GitHub</span>
-            <span class="skill-chip">Debugging & Logcat</span>
+            <span class="skill-chip">Android Studio</span>
           </div>
           <div class="skill-note">
-            Focused on practical flows: login/sign-up, syncing user data, and keeping code readable and maintainable.
+            Experienced in integrating mobile apps with backend services, implementing authentication flows, 
+            and managing session handling across platforms.
           </div>
         </div>
       </div>
@@ -855,49 +982,29 @@
       <div class="section-header">
         <h2 class="section-title">Projects</h2>
         <p class="section-highlight">
-          A few <strong>Android projects</strong> I’ve built and keep improving.
+          Personal projects demonstrating <strong>mobile development skills</strong>.
         </p>
       </div>
       <div class="projects-grid">
 
         <article class="project-card">
           <div class="project-header">
-            <h3 class="project-title">Notely</h3>
-            <span class="project-tag">Firebase · Notes</span>
-          </div>
-          <p class="project-description">
-            Cloud-based note taking app where users can create, edit and delete notes that stay in sync across
-            devices using Firebase. Designed with a clean, minimal UI for fast note entry.
-          </p>
-          <div class="project-tech">
-            <span>Java</span>
-            <span>Android Studio</span>
-            <span>Firebase Auth</span>
-            <span>Cloud Firestore</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/jasdeepsingh412" class="project-link" target="_blank" rel="noreferrer">
-              <span>View on GitHub</span> <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
             <h3 class="project-title">PulseCheck</h3>
-            <span class="project-tag">Wellness · Anonymous</span>
+            <span class="project-tag">Android · Wellness</span>
           </div>
           <p class="project-description">
-            An anonymous check-in app concept where users can log how they feel and track their moods over time,
-            without attaching their identity. Focus on a comforting UI and simple flows.
+            Employee well-being tracker with anonymous mood logging and admin dashboards. Implemented role-based 
+            access control, one-submission-per-day logic, and Firestore data separation to preserve psychological safety.
           </p>
           <div class="project-tech">
-            <span>Java</span>
             <span>Android</span>
-            <span>Firebase (planned)</span>
+            <span>Java</span>
+            <span>Firebase Auth</span>
+            <span>Firestore</span>
+            <span>MVVM</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/jasdeepsingh412" class="project-link" target="_blank" rel="noreferrer">
+            <a href="https://github.com/jasdeepsingh412/pulsecheck-android" class="project-link" target="_blank" rel="noreferrer">
               <span>View on GitHub</span> <span>↗</span>
             </a>
           </div>
@@ -905,12 +1012,35 @@
 
         <article class="project-card">
           <div class="project-header">
-            <h3 class="project-title">Basic Calculator</h3>
-            <span class="project-tag">Utility</span>
+            <h3 class="project-title">Notely</h3>
+            <span class="project-tag">Android · Productivity</span>
           </div>
           <p class="project-description">
-            A modern, lightweight calculator app with all standard operations and a clean layout that stays usable
-            on different screen sizes.
+            Full CRUD notes application using MVVM architecture and Room for local persistence. 
+            Emphasizes clean code structure, modular design, and maintainable UI patterns.
+          </p>
+          <div class="project-tech">
+            <span>Android</span>
+            <span>Java</span>
+            <span>Room</span>
+            <span>MVVM</span>
+            <span>LiveData</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/jasdeepsingh412/Notely" class="project-link" target="_blank" rel="noreferrer">
+              <span>View on GitHub</span> <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Calculator App</h3>
+            <span class="project-tag">Android · Utility</span>
+          </div>
+          <p class="project-description">
+            Lightweight calculator with smooth UX and fast performance. Built with Java and Android Studio, 
+            focusing on responsive design and efficient calculations.
           </p>
           <div class="project-tech">
             <span>Java</span>
@@ -918,47 +1048,7 @@
             <span>Custom UI</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/jasdeepsingh412" class="project-link" target="_blank" rel="noreferrer">
-              <span>View on GitHub</span> <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">BMI Calculator</h3>
-            <span class="project-tag">Health</span>
-          </div>
-          <p class="project-description">
-            BMI calculator that supports both metric and imperial units, with a modern UI and clear result states.
-          </p>
-          <div class="project-tech">
-            <span>Java</span>
-            <span>Android Studio</span>
-            <span>Responsive UI</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/jasdeepsingh412" class="project-link" target="_blank" rel="noreferrer">
-              <span>View on GitHub</span> <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">Tic Tac Toe</h3>
-            <span class="project-tag">Game</span>
-          </div>
-          <p class="project-description">
-            Classic Tic Tac Toe game built to practice layouts, game logic and clean separation of UI and state.
-          </p>
-          <div class="project-tech">
-            <span>Java</span>
-            <span>Android</span>
-            <span>Game Logic</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/jasdeepsingh412" class="project-link" target="_blank" rel="noreferrer">
+            <a href="https://github.com/jasdeepsingh412/basic-calculator-android" class="project-link" target="_blank" rel="noreferrer">
               <span>View on GitHub</span> <span>↗</span>
             </a>
           </div>
@@ -972,24 +1062,32 @@
       <div class="section-header">
         <h2 class="section-title">Contact</h2>
         <p class="section-highlight">
-          Let’s talk about <strong>Android apps, internships or collaborations</strong>.
+          Let's talk about <strong>mobile development opportunities</strong>.
         </p>
       </div>
       <div class="card contact-card">
         <div class="contact-main">
           <p>
-            Whether it’s an internship, junior Android role or a side project, I’m happy to discuss how I can help
-            build or improve your Android app.
+            I'm open to mobile development roles, internships, and collaborations where I can contribute 
+            to building great user experiences. Whether it's Flutter, Android, or cross-platform development, 
+            I'm excited to discuss how I can help bring your mobile vision to life.
           </p>
           <div class="contact-highlight">
-            Best way to reach me is by email or LinkedIn. Share a brief about your idea / role and I’ll get back
-            as soon as I can.
+            Best way to reach me is by email. I typically respond within 24 hours.
           </div>
         </div>
         <div class="contact-details">
           <div class="contact-row">
             <span class="contact-label">Email</span>
             <span class="contact-value">jasdeepsinghjazzy@gmail.com</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">+91 8728035944</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Location</span>
+            <span class="contact-value">Hoshiarpur, Punjab</span>
           </div>
           <div class="contact-row">
             <span class="contact-label">GitHub</span>
@@ -999,18 +1097,9 @@
               </a>
             </span>
           </div>
-          <div class="contact-row">
-            <span class="contact-label">LinkedIn</span>
-            <span class="contact-value">
-              <a href="https://www.linkedin.com/in/jasdeep-singh-8377b0205/" target="_blank" rel="noreferrer">
-                jasdeep-singh-8377b0205
-              </a>
-            </span>
-          </div>
           <div class="contact-links">
             <a class="contact-link" href="mailto:jasdeepsinghjazzy@gmail.com">Send email</a>
             <a class="contact-link" href="https://github.com/jasdeepsingh412" target="_blank" rel="noreferrer">GitHub profile</a>
-            <a class="contact-link" href="https://www.linkedin.com/in/jasdeep-singh-8377b0205/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </div>
       </div>
@@ -1018,12 +1107,11 @@
 
     <footer>
       <span>© <span id="year"></span> Jasdeep Singh</span>
-      <span>Built with Java, Android, and a lot of trial & error.</span>
+      <span>Mobile Developer · Flutter & Android</span>
     </footer>
   </main>
 
   <script>
-    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>

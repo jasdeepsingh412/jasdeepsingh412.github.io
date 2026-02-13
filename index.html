@@ -2,1117 +2,218 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Jasdeep Singh | Mobile Developer (Flutter/Android)</title>
+  <title>Jasdeep Singh | Flutter Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Portfolio of Jasdeep Singh - Mobile Application Developer specializing in Flutter and Android. Currently building at Nomo Toyz."
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #020617;
-      --bg-alt: #020817;
-      --card: #020b19;
-      --accent: #22c55e;
-      --accent-soft: rgba(34, 197, 94, 0.08);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --radius-lg: 18px;
-      --radius-xl: 26px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
-      --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.35);
-      --max-width: 1040px;
+      --primary: #22c55e;
+      --primary-glow: rgba(34, 197, 94, 0.4);
+      --accent-blue: #3b82f6;
+      --bg: #030712;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f9fafb;
+      --text-dim: #9ca3af;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
 
     body {
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top, #020617 0, #000 52%, #000 100%);
-      color: var(--text);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 16px 16px 40px;
-    }
-
-    /* Navbar */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        rgba(2, 6, 23, 0.94),
-        rgba(2, 6, 23, 0.7),
-        transparent
-      );
-      border-bottom: 1px solid rgba(15, 23, 42, 0.8);
-    }
-
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 10px 16px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle at 0 0, #bbf7d0, #22c55e, #16a34a);
-      box-shadow:
-        0 0 0 2px rgba(34, 197, 94, 0.35),
-        0 0 25px rgba(34, 197, 94, 0.5);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #022c22;
-    }
-
-    .nav-text {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-
-    .nav-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .nav-tagline {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      font-size: 0.85rem;
-      flex-wrap: wrap;
-    }
-
-    .nav-link {
-      position: relative;
-      padding-bottom: 2px;
-      color: #9ca3af;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(to right, #22c55e, #4ade80);
-      transition: width 0.22s ease;
-    }
-
-    .nav-link:hover {
-      color: #e5e7eb;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    @media (max-width: 720px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* Hero */
-    .hero {
-      padding: 26px 0 22px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 24px;
-      align-items: center;
-    }
-
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        padding-top: 20px;
-      }
-    }
-
-    .hero-main {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .hero-pill {
-      align-self: flex-start;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 10px 5px 5px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: radial-gradient(circle at top left, #020617, #020617);
-      box-shadow: var(--shadow-subtle);
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .hero-pill-dot {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle at 30% 0, #bbf7d0, transparent 55%),
-        radial-gradient(circle at 70% 100%, #22c55e, #16a34a);
-      box-shadow:
-        0 0 0 4px rgba(34, 197, 94, 0.32),
-        0 0 18px rgba(34, 197, 94, 0.7);
-    }
-
-    .hero-title {
-      font-size: clamp(2.15rem, 4vw, 3.1rem);
-      line-height: 1.05;
-      letter-spacing: 0.02em;
-    }
-
-    .hero-title span {
-      background: linear-gradient(to right, #f9fafb, #e5e7eb, #a7f3d0);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 0.96rem;
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    .hero-subtitle strong {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .hero-actions {
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 9px 16px;
-      font-size: 0.88rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      cursor: pointer;
-      border: 1px solid transparent;
-      background: transparent;
-      color: inherit;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: #020617;
-      border-color: rgba(34, 197, 94, 0.7);
-      font-weight: 600;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.06);
-      transform: translateY(-0.5px);
-    }
-
-    .btn-ghost {
-      border-color: rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at top left, #020617, #020617);
-      color: var(--muted);
-    }
-
-    .btn-ghost:hover {
-      border-color: rgba(148, 163, 184, 0.9);
-      color: #e5e7eb;
-    }
-
-    .btn-icon {
-      font-size: 1rem;
-    }
-
-    .hero-meta {
-      margin-top: 6px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .meta-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    /* Hero right card */
-    .hero-card {
-      border-radius: var(--radius-xl);
-      padding: 16px 14px 14px;
-      border: 1px solid rgba(15, 23, 42, 0.96);
-      background:
-        radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.15), transparent 53%),
-        linear-gradient(145deg, #020617, #020617);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .hero-card-title {
-      font-size: 0.84rem;
-      color: #9ca3af;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero-status {
-      font-size: 0.76rem;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 197, 94, 0.5);
-      background: rgba(34, 197, 94, 0.08);
-      color: #bbf7d0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
-    }
-
-    .hero-card-body {
-      border-radius: 16px;
-      padding: 12px;
-      background: radial-gradient(circle at 0 0, #020617, #020617);
-      border: 1px solid rgba(31, 41, 55, 0.96);
-    }
-
-    .hero-row-label {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      margin-bottom: 2px;
-    }
-
-    .hero-row-value {
-      font-size: 0.9rem;
-      color: #e5e7eb;
-      margin-bottom: 8px;
-    }
-
-    .hero-skills-inline {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-      margin-bottom: 6px;
-    }
-
-    .chip {
-      font-size: 0.75rem;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(55, 65, 81, 0.96);
-      color: #9ca3af;
-    }
-
-    .hero-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-      font-size: 0.76rem;
-      color: #6b7280;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .hero-badge {
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px dashed rgba(75, 85, 99, 0.96);
-      background: rgba(15, 23, 42, 0.96);
-    }
-
-    .hero-spark {
-      position: absolute;
-      inset: -40%;
-      opacity: 0.35;
-      background:
-        radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.23), transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(45, 212, 191, 0.18), transparent 55%);
-      pointer-events: none;
-      mix-blend-mode: screen;
-    }
-
-    /* Sections */
-    section {
-      margin-top: 34px;
-    }
-
-    .section-header {
-      margin-bottom: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 14px;
-    }
-
-    .section-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #9ca3af;
-    }
-
-    .section-highlight {
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .section-highlight strong {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    /* Card base */
-    .card {
-      border-radius: var(--radius-lg);
-      padding: 16px 16px 14px;
-      background: radial-gradient(circle at top left, #020617, #020617);
-      border: 1px solid rgba(31, 41, 55, 0.96);
-      box-shadow: var(--shadow-subtle);
-      font-size: 0.9rem;
-      color: var(--muted);
+      background: var(--bg);
+      color: var(--text-main);
+      overflow-x: hidden;
       line-height: 1.6;
     }
 
-    .card p + p {
-      margin-top: 8px;
+    /* Flutter-style Mesh Gradient Background */
+    .mesh-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(34, 197, 94, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.04) 0%, transparent 50%);
     }
 
-    /* Experience */
-    .experience-card {
-      border-radius: var(--radius-lg);
-      padding: 16px;
-      background: radial-gradient(circle at top left, #020617, #020617);
-      border: 1px solid rgba(31, 41, 55, 0.96);
-      box-shadow: var(--shadow-subtle);
-      margin-bottom: 14px;
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(3, 7, 18, 0.75);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 20px 0;
     }
 
-    .experience-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; color: var(--primary); }
+    
+    nav a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; font-weight: 600; margin-left: 30px; transition: 0.3s; text-transform: uppercase; }
+    nav a:hover { color: var(--primary); }
 
-    .experience-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #e5e7eb;
+    /* Hero */
+    .hero { padding: 120px 0 80px; text-align: center; }
+    .badge { 
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 99px; 
+      background: rgba(34, 197, 94, 0.1); border: 1px solid var(--primary);
+      color: var(--primary); font-size: 0.75rem; font-weight: 700; margin-bottom: 30px;
     }
+    .badge-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary); }
+    h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1; margin-bottom: 24px; font-weight: 800; letter-spacing: -2px; }
+    h1 span { background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { color: var(--text-dim); max-width: 650px; margin: 0 auto 40px; font-size: 1.15rem; font-weight: 300; }
 
-    .experience-company {
-      font-size: 0.88rem;
-      color: #22c55e;
-    }
-
-    .experience-meta {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .experience-content {
-      margin-top: 10px;
-    }
-
-    .experience-content ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .experience-content li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 6px;
-      font-size: 0.88rem;
-      color: #9ca3af;
-      line-height: 1.5;
-    }
-
-    .experience-content li::before {
-      content: "▸";
-      position: absolute;
-      left: 0;
-      color: #22c55e;
-    }
-
-    /* Skills */
-    .skills-grid {
+    /* Featured Project: Echo Chat App */
+    .echo-hero {
+      margin-bottom: 100px;
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
-      gap: 16px;
-    }
-
-    @media (max-width: 880px) {
-      .skills-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .skills-group-title {
-      font-size: 0.84rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #9ca3af;
-      margin-bottom: 8px;
-    }
-
-    .skills-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .skill-chip {
-      padding: 5px 9px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      border: 1px solid rgba(55, 65, 81, 0.98);
-      background: rgba(15, 23, 42, 0.98);
-      color: #e5e7eb;
-    }
-
-    .skill-chip.primary {
-      border-color: rgba(34, 197, 94, 0.7);
-      background: rgba(34, 197, 94, 0.12);
-      color: #bbf7d0;
-    }
-
-    .skill-note {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    @media (max-width: 880px) {
-      .projects-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .project-card {
-      border-radius: var(--radius-lg);
-      padding: 12px 12px 10px;
-      background: radial-gradient(circle at top left, #020617, #020617);
-      border: 1px solid rgba(31, 41, 55, 0.96);
-      box-shadow: var(--shadow-subtle);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 0.86rem;
-    }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 6px;
-    }
-
-    .project-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    .project-tag {
-      font-size: 0.75rem;
-      padding: 3px 7px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.08);
-      border: 1px solid rgba(34, 197, 94, 0.6);
-      color: #bbf7d0;
-    }
-
-    .project-description {
-      color: #9ca3af;
-      line-height: 1.4;
-    }
-
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .project-tech span {
-      font-size: 0.75rem;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.96);
-      color: #9ca3af;
-    }
-
-    .project-links {
-      margin-top: 4px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.8rem;
-    }
-
-    .project-link {
-      display: inline-flex;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
       align-items: center;
-      gap: 4px;
-      color: #a5b4fc;
+      background: linear-gradient(145deg, rgba(255,255,255,0.03), transparent);
+      border: 1px solid var(--glass-border);
+      border-radius: 40px;
+      padding: 50px;
+      overflow: hidden;
     }
 
-    .project-link:hover {
-      text-decoration: underline;
-    }
+    .echo-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
+    .echo-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+    .tag { padding: 5px 12px; border-radius: 8px; background: rgba(255,255,255,0.05); font-size: 0.75rem; color: var(--text-dim); border: 1px solid var(--glass-border); }
 
-    /* Contact */
-    .contact-card {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
-      gap: 16px;
+    .echo-visual { position: relative; }
+    .echo-visual img { 
+      width: 100%; border-radius: 20px; 
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      border: 1px solid var(--glass-border);
+      transition: transform 0.5s ease;
     }
+    .echo-visual:hover img { transform: scale(1.02); }
+
+    /* Glass Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .glass-card {
+      background: var(--glass);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover { border-color: var(--primary); background: rgba(255,255,255,0.05); }
+
+    .btn {
+      display: inline-block; padding: 12px 28px; border-radius: 12px;
+      font-weight: 600; text-decoration: none; transition: 0.3s;
+      font-size: 0.9rem;
+    }
+    .btn-primary { background: var(--primary); color: #000; }
+    .btn-primary:hover { box-shadow: 0 0 20px var(--primary-glow); transform: translateY(-2px); }
 
     @media (max-width: 880px) {
-      .contact-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .contact-main {
-      font-size: 0.9rem;
-      color: #9ca3af;
-      line-height: 1.5;
-    }
-
-    .contact-main strong {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .contact-highlight {
-      margin-top: 8px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px dashed rgba(55, 65, 81, 0.98);
-      background: rgba(15, 23, 42, 0.98);
-      font-size: 0.82rem;
-    }
-
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 0.86rem;
-    }
-
-    .contact-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .contact-label {
-      color: #9ca3af;
-    }
-
-    .contact-value {
-      text-align: right;
-      color: #e5e7eb;
-      word-break: break-all;
-    }
-
-    .contact-links {
-      margin-top: 6px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.82rem;
-    }
-
-    .contact-link {
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.98);
-      background: rgba(15, 23, 42, 0.98);
-      color: #e5e7eb;
-    }
-
-    .contact-link:hover {
-      border-color: rgba(148, 163, 184, 0.9);
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 30px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(31, 41, 55, 0.96);
-      font-size: 0.78rem;
-      color: #6b7280;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
+      .echo-hero { grid-template-columns: 1fr; padding: 30px; text-align: center; }
+      .echo-tags { justify-content: center; }
+      nav { display: none; }
     }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="nav-left">
-        <div class="avatar">JS</div>
-        <div class="nav-text">
-          <div class="nav-name">Jasdeep Singh</div>
-          <div class="nav-tagline">Mobile Developer</div>
+
+<div class="mesh-bg"></div>
+
+<header>
+  <div class="container nav-flex">
+    <div class="logo">JASDEEP.ENGINEER</div>
+    <nav>
+      <a href="#work">Featured Work</a>
+      <a href="#about">Philosophy</a>
+      <a href="mailto:jasdeepsingbjazzy@gmail.com">Hire Me</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  
+  <section class="hero">
+    <div class="badge"><div class="badge-dot"></div> Available for Flutter Roles</div>
+    <h1>Engineering <span>AI-Integrated</span> Ecosystems.</h1>
+    <p>I build production-grade Flutter applications with hybrid backends and real-time reliability standards borrowed from maritime engineering.</p>
+    <a href="https://github.com/jasdeepsingh412" class="btn btn-primary">Explore GitHub</a>
+  </section>
+
+  <section id="work">
+    <div class="echo-hero">
+      <div class="echo-content">
+        <div class="tag" style="color: var(--primary); border-color: var(--primary);">Featured Project</div>
+        <h2>Echo Chat</h2>
+        <p style="color: var(--text-dim); margin-bottom: 25px;">
+          A sophisticated real-time messaging ecosystem featuring <strong>Echo AI (Groq LLM)</strong> integration. 
+          Built with a reliability-first approach using Firebase Streams for messaging and Supabase for high-performance media storage.
+        </p>
+        <div class="echo-tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Groq LLM API</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Riverpod</span>
+        </div>
+        <div style="display: flex; gap: 15px;">
+          <a href="https://github.com/jasdeepsingh412/echo-chat-app.git" class="btn btn-primary" style="padding: 10px 20px;">Source Code ↗</a>
         </div>
       </div>
-      <nav class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
+      <div class="echo-visual">
+        <img src="https://via.placeholder.com/500x700/030712/22c55e?text=Echo+App+Screenshot" alt="Echo Chat Interface">
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main class="page">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-main">
-        <div class="hero-pill">
-          <div class="hero-pill-dot"></div>
-          Currently building production apps at Nomo Toyz
-        </div>
-        <h1 class="hero-title">
-          Hi, I'm <span>Jasdeep</span> – I build mobile apps that users love.
-        </h1>
-        <p class="hero-subtitle">
-          Mobile developer specializing in <strong>Flutter and Android</strong> with hands-on experience 
-          building full-stack mobile applications. Currently working at Nomo Toyz, where I own the entire 
-          UI layer and integrate complex authentication flows with backend APIs.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">
-            <span class="btn-icon">📱</span>
-            View my work
-          </a>
-          <a href="#contact" class="btn btn-ghost">
-            <span class="btn-icon">✉️</span>
-            Let's connect
-          </a>
-        </div>
-        <div class="hero-meta">
-          <span><span class="meta-dot"></span> Open to mobile development opportunities</span>
-          <span>Hoshiarpur, Punjab · Remote-friendly</span>
-        </div>
-      </div>
+  <div class="grid">
+    <div class="glass-card">
+      <div class="tag">Android • Wellness</div>
+      <h3 style="margin: 15px 0 10px;">PulseCheck</h3>
+      <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">
+        An employee well-being tracker implementing anonymous mood data storage and role-based admin dashboards.
+      </p>
+      <a href="https://github.com/jasdeepsingh412/pulsecheck-android" style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-decoration: none;">VIEW PROJECT →</a>
+    </div>
 
-      <aside class="hero-card" aria-label="Quick profile">
-        <div class="hero-spark"></div>
-        <div class="hero-card-top">
-          <div class="hero-card-title">Snapshot</div>
-          <div class="hero-status">
-            <span class="hero-status-dot"></span>
-            Building in production
-          </div>
-        </div>
-        <div class="hero-card-body">
-          <div>
-            <div class="hero-row-label">Current Role</div>
-            <div class="hero-row-value">Mobile Development Intern @ Nomo Toyz</div>
-          </div>
-          <div>
-            <div class="hero-row-label">Primary Stack</div>
-            <div class="hero-row-value">Flutter · Dart · Android SDK · Firebase</div>
-          </div>
-          <div>
-            <div class="hero-row-label">Core Competencies</div>
-            <div class="hero-skills-inline">
-              <span class="chip">Flutter UI</span>
-              <span class="chip">REST APIs</span>
-              <span class="chip">OAuth 2.0</span>
-              <span class="chip">Firebase Auth</span>
-              <span class="chip">MVVM</span>
-              <span class="chip">Android SDK</span>
-            </div>
-          </div>
-          <div class="hero-card-footer">
-            <div class="hero-badges">
-              <div class="hero-badge">End-to-end ownership</div>
-              <div class="hero-badge">Production debugging</div>
-            </div>
-            <span>Shipping real features</span>
-          </div>
-        </div>
-      </aside>
-    </section>
+    <div class="glass-card">
+      <div class="tag">Design System</div>
+      <h3 style="margin: 15px 0 10px;">Crystal AI UI</h3>
+      <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">
+        A custom glassmorphism design system for Flutter featuring asymmetric geometry, Hero transitions, and mesh gradients.
+      </p>
+      <span class="tag">Modular Components</span>
+    </div>
+  </div>
 
-    <!-- About -->
-    <section id="about">
-      <div class="section-header">
-        <h2 class="section-title">About</h2>
-        <p class="section-highlight">
-          <strong>Mobile developer</strong> who thrives on building complete user experiences.
+  <section id="about" style="padding: 100px 0;">
+    <div class="echo-hero" style="background: none; border: none; padding: 0;">
+      <div class="glass-card">
+        <h2 style="font-size: 1.8rem; margin-bottom: 15px;">The Maritime Mindset</h2>
+        <p style="color: var(--text-dim);">
+          As a former <strong>Second Mate</strong>, I operated mission-critical navigation systems where "bugs" were not an option. 
+          I bring this same precision-driven, zero-error mindset to Flutter engineering—ensuring your production apps are as stable as a ship in a storm.
         </p>
       </div>
-      <article class="card">
-        <p>
-          I'm Jasdeep Singh, a mobile developer passionate about creating polished, functional apps. 
-          Currently at Nomo Toyz, I own the entire UI layer of our mobile app – designing and building 
-          every screen from authentication flows to complex product features, all while working closely 
-          with backend engineers to ensure seamless integration.
-        </p>
-        <p>
-          My experience spans <strong>Flutter, Android development, and Firebase</strong>, with a focus 
-          on building reusable component systems and maintaining clean, scalable code. I've tackled 
-          production-blocking issues across frontend and backend boundaries, learning to debug effectively 
-          under pressure and communicate technical challenges clearly.
-        </p>
-        <p>
-          Before transitioning to software development, I worked as a Second Mate in maritime operations, 
-          where I operated mission-critical systems in zero-error environments and led multicultural teams 
-          during high-pressure situations. This background taught me precision, attention to detail, and 
-          the importance of reliable systems – values I bring to every line of code I write.
-        </p>
-      </article>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience">
-      <div class="section-header">
-        <h2 class="section-title">Experience</h2>
-        <p class="section-highlight">
-          Building <strong>real products</strong> and solving <strong>production challenges</strong>.
-        </p>
+      <div class="glass-card" style="border-left: 4px solid var(--primary);">
+        <h3 style="margin-bottom: 15px;">Core Stack</h3>
+        <div class="echo-tags">
+          <span class="tag">Dart</span> <span class="tag">Riverpod</span> <span class="tag">OAuth 2.0</span> 
+          <span class="tag">FCM</span> <span class="tag">PostgreSQL</span> <span class="tag">Git</span>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-dim);">Currently building at <strong>Nomo Toyz</strong>.</p>
       </div>
-      
-      <article class="experience-card">
-        <div class="experience-header">
-          <div>
-            <h3 class="experience-title">Mobile Development Intern</h3>
-            <div class="experience-company">Nomo Toyz</div>
-          </div>
-          <div class="experience-meta">
-            <span>Remote</span>
-            <span>Dec 2025 – Present</span>
-          </div>
-        </div>
-        <div class="experience-content">
-          <ul>
-            <li>Designed and built every screen of the mobile application using Flutter, including login, signup, onboarding, home, product flows, wishlist, and parental control features</li>
-            <li>Own the entire UI layer end-to-end, from layout and component structure to final in-app implementation, ensuring visual consistency and scalability</li>
-            <li>Built reusable Flutter components and design systems that maintain consistency across the app while enabling rapid feature development</li>
-            <li>Implemented authentication flows (email/password and Google Sign-In) and connected UI screens to backend APIs with cookie-based sessions</li>
-            <li>Integrated OAuth 2.0 Google Sign-In, collaborating closely with backend engineers to debug and resolve token, audience, and session-handling issues</li>
-            <li>Connected UI flows with REST APIs for user profiles, wishlist, and protected routes, implementing cookie-based session management</li>
-            <li>Took ownership of debugging production-blocking issues across frontend and backend boundaries under tight timelines</li>
-          </ul>
-        </div>
-      </article>
+    </div>
+  </section>
 
-      <article class="experience-card">
-        <div class="experience-header">
-          <div>
-            <h3 class="experience-title">Second Mate (Deck Officer)</h3>
-            <div class="experience-company">Executive Ship Management</div>
-          </div>
-          <div class="experience-meta">
-            <span>Singapore</span>
-            <span>Mar 2021 – Jan 2024</span>
-          </div>
-        </div>
-        <div class="experience-content">
-          <ul>
-            <li>Operated mission-critical navigation and safety systems in zero-error environments – experience now applied to debugging, QA, and production-level development</li>
-            <li>Led multicultural crews during high-pressure operations, directly translating to teamwork and ownership in software projects</li>
-            <li>Managed technical documentation and compliance records with precision, strengthening attention to detail in code structure and system design</li>
-            <li>Rapidly adapted to new onboard technologies, now mirrored in fast learning of mobile frameworks and tooling</li>
-          </ul>
-        </div>
-      </article>
-    </section>
+</main>
 
-    <!-- Skills -->
-    <section id="skills">
-      <div class="section-header">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-highlight">
-          From <strong>Flutter UI</strong> to <strong>backend integration</strong>.
-        </p>
-      </div>
-      <div class="skills-grid">
-        <div class="card">
-          <div class="skills-group-title">Mobile Development</div>
-          <div class="skills-chips">
-            <span class="skill-chip primary">Flutter</span>
-            <span class="skill-chip primary">Dart</span>
-            <span class="skill-chip">Android SDK</span>
-            <span class="skill-chip">Java</span>
-            <span class="skill-chip">Jetpack</span>
-            <span class="skill-chip">MVVM</span>
-            <span class="skill-chip">XML UI</span>
-          </div>
-          <div class="skill-note">
-            Expert in Flutter UI development with experience building complete mobile applications from scratch. 
-            Strong Android foundations with Java and modern architecture patterns.
-          </div>
-        </div>
+<footer style="padding: 50px 0; border-top: 1px solid var(--glass-border); text-align: center;">
+  <p style="color: var(--text-dim); font-size: 0.8rem;">© 2026 JASDEEP SINGH • Flutter Engineer • Hoshiarpur, Punjab</p>
+</footer>
 
-        <div class="card">
-          <div class="skills-group-title">Backend & Tools</div>
-          <div class="skills-chips">
-            <span class="skill-chip primary">REST APIs</span>
-            <span class="skill-chip primary">Firebase</span>
-            <span class="skill-chip">OAuth 2.0</span>
-            <span class="skill-chip">Cookie Auth</span>
-            <span class="skill-chip">Firestore</span>
-            <span class="skill-chip">Room</span>
-            <span class="skill-chip">Git & GitHub</span>
-            <span class="skill-chip">Android Studio</span>
-          </div>
-          <div class="skill-note">
-            Experienced in integrating mobile apps with backend services, implementing authentication flows, 
-            and managing session handling across platforms.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-      <div class="section-header">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-highlight">
-          Personal projects demonstrating <strong>mobile development skills</strong>.
-        </p>
-      </div>
-      <div class="projects-grid">
-
-        <article class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">PulseCheck</h3>
-            <span class="project-tag">Android · Wellness</span>
-          </div>
-          <p class="project-description">
-            Employee well-being tracker with anonymous mood logging and admin dashboards. Implemented role-based 
-            access control, one-submission-per-day logic, and Firestore data separation to preserve psychological safety.
-          </p>
-          <div class="project-tech">
-            <span>Android</span>
-            <span>Java</span>
-            <span>Firebase Auth</span>
-            <span>Firestore</span>
-            <span>MVVM</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/jasdeepsingh412/pulsecheck-android" class="project-link" target="_blank" rel="noreferrer">
-              <span>View on GitHub</span> <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">Notely</h3>
-            <span class="project-tag">Android · Productivity</span>
-          </div>
-          <p class="project-description">
-            Full CRUD notes application using MVVM architecture and Room for local persistence. 
-            Emphasizes clean code structure, modular design, and maintainable UI patterns.
-          </p>
-          <div class="project-tech">
-            <span>Android</span>
-            <span>Java</span>
-            <span>Room</span>
-            <span>MVVM</span>
-            <span>LiveData</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/jasdeepsingh412/Notely" class="project-link" target="_blank" rel="noreferrer">
-              <span>View on GitHub</span> <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">Calculator App</h3>
-            <span class="project-tag">Android · Utility</span>
-          </div>
-          <p class="project-description">
-            Lightweight calculator with smooth UX and fast performance. Built with Java and Android Studio, 
-            focusing on responsive design and efficient calculations.
-          </p>
-          <div class="project-tech">
-            <span>Java</span>
-            <span>Android Studio</span>
-            <span>Custom UI</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/jasdeepsingh412/basic-calculator-android" class="project-link" target="_blank" rel="noreferrer">
-              <span>View on GitHub</span> <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="section-header">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-highlight">
-          Let's talk about <strong>mobile development opportunities</strong>.
-        </p>
-      </div>
-      <div class="card contact-card">
-        <div class="contact-main">
-          <p>
-            I'm open to mobile development roles, internships, and collaborations where I can contribute 
-            to building great user experiences. Whether it's Flutter, Android, or cross-platform development, 
-            I'm excited to discuss how I can help bring your mobile vision to life.
-          </p>
-          <div class="contact-highlight">
-            Best way to reach me is by email. I typically respond within 24 hours.
-          </div>
-        </div>
-        <div class="contact-details">
-          <div class="contact-row">
-            <span class="contact-label">Email</span>
-            <span class="contact-value">jasdeepsinghjazzy@gmail.com</span>
-          </div>
-          <div class="contact-row">
-            <span class="contact-label">Phone</span>
-            <span class="contact-value">+91 8728035944</span>
-          </div>
-          <div class="contact-row">
-            <span class="contact-label">Location</span>
-            <span class="contact-value">Hoshiarpur, Punjab</span>
-          </div>
-          <div class="contact-row">
-            <span class="contact-label">GitHub</span>
-            <span class="contact-value">
-              <a href="https://github.com/jasdeepsingh412" target="_blank" rel="noreferrer">
-                github.com/jasdeepsingh412
-              </a>
-            </span>
-          </div>
-          <div class="contact-links">
-            <a class="contact-link" href="mailto:jasdeepsinghjazzy@gmail.com">Send email</a>
-            <a class="contact-link" href="https://github.com/jasdeepsingh412" target="_blank" rel="noreferrer">GitHub profile</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <span>© <span id="year"></span> Jasdeep Singh</span>
-      <span>Mobile Developer · Flutter & Android</span>
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
